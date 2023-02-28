@@ -42,6 +42,11 @@ steps:
     cliProjectKey: 'prajktamhapsekar829'
     cliProjectName: 'simple-java-maven-app'
     cliSources: '.'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.java.binaries
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
