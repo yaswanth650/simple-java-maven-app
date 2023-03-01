@@ -72,4 +72,7 @@ steps:
     sourceFolder: '/home/vsts/work/1/s/target'
     contents: '**/*.jar'
     targetFolder: '/var/lib/tomcat9/webapps'
-    readyTimeout: '20000'
+    readyTimeout: '20000' 
+
+- task: owaspzap@1
+  inputs:
