@@ -70,6 +70,6 @@ steps:
   inputs:
     sshEndpoint: 'tomcat-devsecops-connection'
     sourceFolder: '/home/vsts/work/1/s/target'
-    contents: '**/*.war'
+    contents: '**/*.jar'
     targetFolder: '/var/lib/tomcat9/webapps'
     readyTimeout: '20000'
