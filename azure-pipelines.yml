@@ -76,6 +76,7 @@ steps:
 
 - task: owaspzap@1
   inputs:
+    threshold: '300'
     scantype: 'targetedScan'
     url: 'http://43.205.143.132:8080/simple-java-maven-app/'
     provideCustomContext: true
