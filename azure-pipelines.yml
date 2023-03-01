@@ -10,11 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: 'compile'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
@@ -25,7 +24,7 @@ steps:
 - task: dependency-check-build-task@6
   inputs:
     projectName: 'simple-java-maven-app'
-    scanPath: '/home/vsts/work/1/s/target'
+    scanPath:.
     format: 'HTML'
 - task: SnykSecurityScan@1
   inputs:
@@ -46,7 +45,7 @@ steps:
       # Additional properties that will be passed to the scanner, 
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
-      sonar.java.binaries= **/*.java
+      sonar.java.binaries=.
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
@@ -62,8 +61,3 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false 
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
