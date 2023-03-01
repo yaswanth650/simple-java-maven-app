@@ -76,3 +76,7 @@ steps:
 
 - task: owaspzap@1
   inputs:
+    scantype: 'targetedScan'
+    url: 'http://43.205.143.132:8080/simple-java-maven-app/'
+    provideCustomContext: true
+    contextPath: '/simple-java-maven-app'
